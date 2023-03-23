@@ -1,19 +1,17 @@
 import React from "react";
 
 const ExpenseItem = (props) => {
-    console.log(props)
-    const title="tea"
-    const price=125
-    const myDate=new Date()
-    const LocationOfExpenditure="pune"
+    const{title,price,date,LocationOfExpenditure}=props
+   
+    
   return (
     <div>
-      <div>{props.title}</div>
-      <div>{props.price}</div>
+      <div>{title}</div>
+      <div>{price}</div>
 
-      <div>{props.date}</div>
+      <div>{date}</div>
 
-      <div>{props.LocationOfExpenditure}</div>
+      <div>{LocationOfExpenditure}</div>
     </div>
   );
 };
