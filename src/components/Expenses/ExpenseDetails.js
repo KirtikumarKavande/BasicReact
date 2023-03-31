@@ -9,14 +9,9 @@ console.log("deleted")
     <div>
       <h2>{props.title}</h2>
         <div className='expense-item__price'>${expense}</div>
-        <button onClick={()=>{
-          setExpense("updated!!!")
         
-          console.log(expense)
-        }}>change Expense</button>
         {/* <div className='expense-item__price'>{props.location}</div> */}
 
-        <button onClick={deleteHandle}>delete</button>
     </div>
   )
 }
