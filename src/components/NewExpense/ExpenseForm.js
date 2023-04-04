@@ -2,17 +2,23 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({onExpenseDataChanged}) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
-function handleSubmit(e){
-e.preventDefault();
-const Data={
-    title,date,amount,
-}
-console.log(Data)
-}
+  function handleSubmit(e) {
+    e.preventDefault();
+    const Data = {
+      title:title,
+      date:date,
+      amount:amount,
+    };
+    // console.log(Data);
+    onExpenseDataChanged(Data) 
+    setTitle("");
+    setAmount("");
+    setDate("");
+  }
 
   return (
     <form onSubmit={handleSubmit}>

@@ -33,10 +33,14 @@ function App() {
     },
   ];
 
+function dataInApp(data){
+  console.log("app dataInApp",data)
+}
+
+
   return (
     <div>
-      
-      <NewExpense/>
+      <NewExpense dataInApp={dataInApp}/>
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
