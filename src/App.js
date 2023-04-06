@@ -1,4 +1,5 @@
 import ExpenseItem from "./components/Expenses/ExpenseItem";
+import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
@@ -37,10 +38,15 @@ function dataInApp(data){
   console.log("app dataInApp",data)
 }
 
+function dataPass(data){
+console.log("taskdata",data)
+}
+
 
   return (
     <div>
       <NewExpense dataInApp={dataInApp}/>
+      <ExpensesFilter dataPass={dataPass}/>
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
