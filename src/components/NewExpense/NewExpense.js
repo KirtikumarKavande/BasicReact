@@ -12,7 +12,7 @@ const NewExpense = ({dataInApp}) => {
     ...myData,
     id: Math.random(),
   }
- console.log("first",expenseData) 
+  dataInApp(expenseData) 
 
 }
   return (
