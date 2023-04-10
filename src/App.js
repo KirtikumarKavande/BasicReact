@@ -4,7 +4,6 @@ import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
-  
   const expenses = [
     {
       id: "e1",
@@ -34,35 +33,44 @@ function App() {
       date: new Date(2021, 5, 12),
       location: "kolhapur",
     },
+    {
+      id: "e5",
+      title: "old Desk (Wooden)",
+      amount: 45,
+      date: new Date(2022, 5, 12),
+      location: "usa",
+    },
   ];
-const [show,setShow]=useState(expenses)
-  function dataInApp(data) {
-  
-// return (
-//   setShow([...expenses,data])
-//   )
+  const [show, setShow] = useState(expenses);
 
-setShow((prevExpense)=>{
-  return [data,...prevExpense]
-})
-  
+  function dataInApp(data) {
+    setShow((prevExpense) => {
+      return [data, ...prevExpense];
+    });
   }
 
   function dataPass(data) {
     console.log(data);
   }
 
+  const filterPass = (filtereddata) => {
+    setShow(filtereddata);
+  };
+
   return (
     <div>
       <NewExpense dataInApp={dataInApp} />
-      <ExpensesFilter dataPass={dataPass} />
-  
+      <ExpensesFilter
+        dataPass={dataPass}
+        arrayData={expenses}
+        filterPass={filterPass}
+      />
 
-      {show.map((item) => {
+      {show?.map((item) => {
         return (
           <>
             <ExpenseItem
-            key={item.id}
+              key={item.id}
               title={item.title}
               amount={item.amount}
               date={item.date}
