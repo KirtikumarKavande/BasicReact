@@ -2,6 +2,7 @@ import { useState } from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 import NewExpense from "./components/NewExpense/NewExpense";
+import { ExpenseDataShow } from "./components/utilis/common";
 
 function App() {
   const expenses = [
@@ -57,6 +58,8 @@ function App() {
     setShow(filtereddata);
   };
 
+  
+
   return (
     <div>
       <NewExpense dataInApp={dataInApp} />
@@ -66,19 +69,11 @@ function App() {
         filterPass={filterPass}
       />
 
-      {show?.map((item) => {
-        return (
-          <>
-            <ExpenseItem
-              key={item.id}
-              title={item.title}
-              amount={item.amount}
-              date={item.date}
-              location={item.location}
-            />
-          </>
-        );
-      })}
+     
+      <ExpenseDataShow show={show}/>
+      {show.length == 1 && <p>only single expense plz add more</p>}
+      {show.length == 0 && <p>plz add expense to display...</p>}
+
     </div>
   );
 }

@@ -15,6 +15,7 @@ const ExpensesFilter = ({ dataPass, arrayData, filterPass }) => {
     filterPass(filteredArraydata);
 
   },[yearData])
+  
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
