@@ -10,7 +10,7 @@ const ExpensesFilter = ({ dataPass, arrayData, filterPass }) => {
   const filteredArraydata = arrayData.filter((item) => {
     return yearData === item.date.getFullYear().toString();
   });
-  console.log("filter", filteredArraydata);
+  // console.log("filter", filteredArraydata);
   useEffect(()=>{
     filterPass(filteredArraydata);
 

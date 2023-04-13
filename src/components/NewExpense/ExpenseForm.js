@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({onExpenseDataChanged,setExpenseForm}) => {
+const ExpenseForm = ({onExpenseDataChanged,makeUnvisible}) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
@@ -10,7 +10,7 @@ const ExpenseForm = ({onExpenseDataChanged,setExpenseForm}) => {
     e.preventDefault();
     const Data = {
       title:title,
-      date:date,
+      date:new Date(date),
       amount:amount,
     };
     // console.log(Data);
@@ -59,8 +59,8 @@ const ExpenseForm = ({onExpenseDataChanged,setExpenseForm}) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button   onSubmit={()=>{setExpenseForm()}} >Add Expense</button>
-        <button type="button"  onClick={()=>{setExpenseForm()}} >cancel</button>
+        <button  type="submit" >Add Expense</button>
+        <button  onClick={makeUnvisible} type="button"   >cancel</button>
 
        
       </div>

@@ -12,6 +12,10 @@ const NewExpense = ({ dataInApp }) => {
     };
     dataInApp(expenseData);
   }
+
+  function makeUnvisible() {
+    setExpenseForm(false);
+  }
   return (
     <div className="new-expense">
       {!expenseForm && (
@@ -24,7 +28,11 @@ const NewExpense = ({ dataInApp }) => {
         </button>
       )}
       {expenseForm && (
-        <ExpenseForm onExpenseDataChanged={onExpenseDataChanged} expenseForm={expenseForm} setExpenseForm={()=>{setExpenseForm(false)}}/>
+        <ExpenseForm
+          onExpenseDataChanged={onExpenseDataChanged}
+          expenseForm={expenseForm}
+          makeUnvisible={makeUnvisible}
+        />
       )}
     </div>
   );

@@ -3,6 +3,7 @@ import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 import NewExpense from "./components/NewExpense/NewExpense";
 import { ExpenseDataShow } from "./components/utilis/common";
+import ExpenseChart from "./components/Expenses/ExpenseChart";
 
 function App() {
   const expenses = [
@@ -17,7 +18,7 @@ function App() {
       id: "e2",
       title: "New TV",
       amount: 799.49,
-      date: new Date(2021, 2, 12),
+      date: new Date(2021, 9, 12),
       location: "delhi",
     },
     {
@@ -31,50 +32,53 @@ function App() {
       id: "e4",
       title: "New Desk (Wooden)",
       amount: 450,
-      date: new Date(2021, 5, 12),
+      date: new Date(2022, 4, 12),
       location: "kolhapur",
     },
     {
       id: "e5",
       title: "old Desk (Wooden)",
       amount: 45,
-      date: new Date(2022, 5, 12),
+      date: new Date(2022, 4, 12),
       location: "usa",
     },
   ];
+
   const [show, setShow] = useState(expenses);
 
   function dataInApp(data) {
     setShow((prevExpense) => {
+      console.log("------------",prevExpense)
       return [data, ...prevExpense];
     });
   }
 
+  // function dataInApp(data){
+  //   console.log(data)
+  //   setShow([data,...expenses])
+  // }
+  console.log(show);
   function dataPass(data) {
-    console.log(data);
+    // console.log(data);
   }
 
   const filterPass = (filtereddata) => {
     setShow(filtereddata);
   };
-  
-
-  
 
   return (
     <div>
       <NewExpense dataInApp={dataInApp} />
+      <ExpenseChart expenses={show} />
       <ExpensesFilter
         dataPass={dataPass}
         arrayData={expenses}
         filterPass={filterPass}
       />
 
-     
-      <ExpenseDataShow show={show}/>
+      <ExpenseDataShow show={show} />
       {show.length == 1 && <p>only single expense plz add more</p>}
       {show.length == 0 && <p>plz add expense to display...</p>}
-
     </div>
   );
 }

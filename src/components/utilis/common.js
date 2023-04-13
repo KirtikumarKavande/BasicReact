@@ -7,7 +7,7 @@ export const ExpenseDataShow = ({ show }) => {
         return (
           <>
             <ExpenseItem
-              key={item.id}
+             key={item.id}
               title={item.title}
               amount={item.amount}
               date={item.date}
